@@ -19,7 +19,7 @@ app.get("/users", async (req, res) => {
 app.post("/user", async (req, res) => {
   const {name, email, password} = req.body;
 
-  const teste = await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       createdAt: new Date(),
       name,
@@ -28,7 +28,7 @@ app.post("/user", async (req, res) => {
     },
   });
 
-  return res.json(teste);
+  return res.json(user);
 });
 
 app.get("/", async (req, res) => {
