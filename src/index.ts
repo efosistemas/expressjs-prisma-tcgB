@@ -27,8 +27,8 @@ app.post("/user", async (req, res) => {
       password
     },
   });
-
-  return res.json(user);
+  const { password: _, ...userSemPass } = user
+  return res.json(userSemPass);
 });
 
 app.get("/", async (req, res) => {
